@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--使用viewport的meta標籤設定網頁再行動裝置螢幕顯示的寬度比例-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <!--
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    -->
+    <!--
+                                                         ``                                                 
+                                                 ..                                                 
+                                                 --                                                 
+                                                 ::                                                 
+                                          .`    `//     `.                                          
+                                           -:.` .//` `-:-                                           
+                ./-                         -//:://:://.                         -/`                
+                `oo+:.                      `-////////.`                      .:+oo                 
+                 +oooo+-`           `..-::////////////////::-..`           `-+oooo+                 
+                 +oooooo+:.                ``-////////-``                .:+oooooo+                 
+        `-`      -+oooooooo+-               .//:://:://.              `-+oooooooo+-      `-`        
+         /o+:.     .:+ooooooo+:`           -:-` .//` `-:-           `:+ooooooo+:`     .:+o/         
+         .oooo+/-`    .:+ooooooo/.        .`    `//     `.        ./ooooooo+:.    `-/+oooo.         
+          /ooooooo/-`    .:+oooooo+-             ::             -+oooooo+:.    .-+ooooooo/          
+          .+ooooooooo+:.    .:+ooooo+:`          --          `:+ooooo+:.    .:+ooooooooo+.          
+   .`       `-:/+ooooooo+/-`   .:+oooo+:`        ..        `/ooooo+:.   `-/+ooooooo+/:-`       `.   
+   `+o+:-.`      `-:+ooooooo/-`   ./ooooo:`      ``      `/oooo+/.   `:/ooooooo/:-`      `.-:+o+`   
+    .+ooooo+/:-.`     .-/+ooooo+:.  `-+ooo+-            :+ooo+-`  .:+ooooo+/-.     `.-:/+ooooo+.    
+     -ooooooooooo+/:.`    `.:/+ooo+:.  ./ooo/`        `+ooo/.  .:+ooo+/:.`    `-:/+ooooooooooo.     
+      :ooooooooooooooo++:-.`   .:/ooo+:` `/oo+.      .+oo:` `:+oo+/:.   `.-:+oooooooooooooooo-      
+        `.--://+oooooooooooo+/-.` `.:+oo/- `/o+.    .+o/` -/oo+:.  `.:/+oooooooooooo+//:--.`        
+                 `..-::/++ooooooo+/-. `-/o+- -++`  `++- -+o/-` .-/+ooooooo++/::-..`                 
++yyyyysssooo++//::--.``   ``.-://+ooo+/-``-++.`+/  /+`.++-``-/+ooo+//:-.``   ``.--:://++ooosssyyyyy/
+ +hhhhhhhhhhhhhhhhhhhhhhyyso+/:-.``.-:/+o+:..//.+..+.//..:+o+/:-.``.-:/+osyyhhhhhhhhhhhhhhhhhhhhhh/ 
+  /hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyo+/---:++--/-::-/.-++:---/+oyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh/  
+   :hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhso+//::--::/++oyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh:   
+    :yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhys//syhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhy-    
+                ````...---:://++ossyhhhhhhhhhhhhhhhhhhhhhhhhhhhhysso++//::---...````                
+                                     ``-:/+oyhhhhhhhhhhyo+/:-``                                     
+    :ossssssssssssssssssssssssssoooo+//:-.`   .:oyy+:.   `.-://+oooossssssssssssssssso:    -+so+.   
+   /hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhys+:.    .:+oyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh:  -hhhhhy   
+   -yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyooyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhy-  `shhhho   
+    `-::::::::::::::::::/shhhhhy+:---------/yhhhhhhhhhhhhhhhhhhhhhhy+::::::::::::::::-`     -::.    
+                          ohhhh:            .hhhhhhhhhhhhhhhhhhhhhs`                                
+                         `shhhh/            :hhhhhhhhhhhhhhhhhhhhhy`                                
+    -//-`    `://///////+yhhhhhhs+/////////shhhhhhhhhhhhhhhhhhhhhhhyo////////////////////////-      
+  `shhhhy`  -yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhho     
+  `yhhhhy.  :hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhs     
+   `/++/.    -+++++oyhhhhhhhhhhso++++++++++++++++++++++++++++oshhhhhhhhhhhhhhhyo+++++++++++++/`     
+                     :hhhhhhhy.                                -yhhhhhhhhhhhy:                      
+                     `hhhhhhho                                  shhhhhhhhhhhy`                      
+              `....-/shhhhhhhho-....`           `.............:shhhhhhhhhhhhhs:.....`               
+            .shhhhhhhhhhhhhhhhhhhhhhyo        `shhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhys`             
+            /hhhhhhhhhhhhhhhhhhhhhhhhh-       /hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh:             
+            `+shhhhhhhhhhhhhhhhhhhhys:         /shhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhs/  
+            
+            
+                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                             `..--:::---.``                                                                                 
+             oyyyyyyyyyyyyys.                          syyyyyyyyyyyyy.                        /sssssssssssssssss/          :yyyyyyyyyyyyys                        syyyyyyyyyyyyy:                    .:+sydmNNNNNMMMMMNNNNNNmdys+:.`          /sssssssssssssssssssssssssssssssssssssssssssssss+             
+             hMMMMMMMMMMMMMMN+                         mMMMMMMMMMMMMM-                     `/dMMMMMMMMMMMMMMMMh-           /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/                -+hmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNds        yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh             
+             hMMMMMMMMMMMMMMMMd:                       mMMMMMMMMMMMMM-                   `+mMMMMMMMMMMMMMMMNy-             /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/             .+dNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo        yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh             
+             hMMMMMMMMMMMMMMMMMNs.                     mMMMMMMMMMMMMM-                 `+mMMMMMMMMMMMMMMMNs.               /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/           `oNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy         yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh             
+             hMMMMMMMMMMMMMMMMMMMm+                    mMMMMMMMMMMMMM-               .omMMMMMMMMMMMMMMMms.                 /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/          `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd`         yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh             
+             hMMMMMMMMMMMMMMMMMMMMMd:                  mMMMMMMMMMMMMM-             .smMMMMMMMMMMMMMMMmo.                   /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/          sMMMMMMMMMMMMMMMMmdhyssooosssyhdmNMMMMMN.          yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh             
+             hMMMMMMMMMMMMMMMMMMMMMMNs.                mMMMMMMMMMMMMM-           -sNMMMMMMMMMMMMMMMd+`                     /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/          NMMMMMMMMMMMMMm+-.`            ``.-/sdN/           :oooooooooooooooodMMMMMMMMMMMMMmoooooooooooooooo/             
+             hMMMMMMMMMMMMMMMMMMMMMMMMm+`              mMMMMMMMMMMMMM-         -yNMMMMMMMMMMMMMMMd+`                       /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/         `MMMMMMMMMMMMMMo                      `.                             sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMMMMMMMMMMMMMMh-             mMMMMMMMMMMMMM-       :yNMMMMMMMMMMMMMMMh/`                         /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/          dMMMMMMMMMMMMMNh+:.`                                                sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMMMMMMMMMMMMMMMNs.           mMMMMMMMMMMMMM-    `:hNMMMMMMMMMMMMMMMh:`                           /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/          :MMMMMMMMMMMMMMMMMNmhyo/:-.`                                        sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMhdMMMMMMMMMMMMMMm/`         mMMMMMMMMMMMMM-   `yMMMMMMMMMMMMMMMMd:                              /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/           +NMMMMMMMMMMMMMMMMMMMMMMNmdhs+:-`                                  sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo`oNMMMMMMMMMMMMMMh-        mMMMMMMMMMMMMM-    -hMMMMMMMMMMMMMMMm/                              /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/            -hNMMMMMMMMMMMMMMMMMMMMMMMMMMMNmhs/.`                             sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo  -yMMMMMMMMMMMMMMNs`      mMMMMMMMMMMMMM-     `+mMMMMMMMMMMMMMMMy.                            /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/              -smNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNds:`                          sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo    /mMMMMMMMMMMMMMMm/`    mMMMMMMMMMMMMM-       .sNMMMMMMMMMMMMMMN+`                          /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/                `:+hmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmo.                        sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo     `oNMMMMMMMMMMMMMMh-   mMMMMMMMMMMMMM-         :dMMMMMMMMMMMMMMMd:                         /MMMMMMMMMMMMMm                        mMMMMMMMMMMMMM/                    `-:+shmmNMMMMMMMMMMMMMMMMMMMMMMMMNo`                      sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo       -hMMMMMMMMMMMMMMNo` mMMMMMMMMMMMMM-          `oNMMMMMMMMMMMMMMMs.                       /MMMMMMMMMMMMMN                        NMMMMMMMMMMMMM:                           .-:/oyhmmNMMMMMMMMMMMMMMMMMMd.                     sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo         /mMMMMMMMMMMMMMMm/NMMMMMMMMMMMMM-            .hMMMMMMMMMMMMMMMm/`                     -MMMMMMMMMMMMMM:                      :MMMMMMMMMMMMMM-                                   `-:+ymNMMMMMMMMMMMMMMm`                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo          `sNMMMMMMMMMMMMMMMMMMMMMMMMMMMM-              /mMMMMMMMMMMMMMMMh-                    `NMMMMMMMMMMMMMd`                    `dMMMMMMMMMMMMMN                                          .+mMMMMMMMMMMMMMo                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo            -hMMMMMMMMMMMMMMMMMMMMMMMMMMM-               `sNMMMMMMMMMMMMMMNs`                   sMMMMMMMMMMMMMMy`                  `yMMMMMMMMMMMMMMo                                            `dMMMMMMMMMMMMm                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo              /mMMMMMMMMMMMMMMMMMMMMMMMMM-                 -dMMMMMMMMMMMMMMMm:                  `NMMMMMMMMMMMMMMd-                -dMMMMMMMMMMMMMMm`                :`                           oMMMMMMMMMMMMN                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo               `sNMMMMMMMMMMMMMMMMMMMMMMM-                   +NMMMMMMMMMMMMMMMy.                 :MMMMMMMMMMMMMMMMh+.`        `.+hMMMMMMMMMMMMMMMN:                sMNho-``                     -NMMMMMMMMMMMMd                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo                 -hMMMMMMMMMMMMMMMMMMMMMM-                    `yMMMMMMMMMMMMMMMNo                 /MMMMMMMMMMMMMMMMMMNdhyssyhdNMMMMMMMMMMMMMMMMMN/                sMMMMMMMdys+:.``          `-+hMMMMMMMMMMMMMM+                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo                   /mMMMMMMMMMMMMMMMMMMMM-                      :dMMMMMMMMMMMMMMMd-                :NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-                sMMMMMMMMMMMMMMMNmmddhhddmNMMMMMMMMMMMMMMMMMm`                    sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo                    `sMMMMMMMMMMMMMMMMMMM-                        oNMMMMMMMMMMMMMMMy`               `yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy`                oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN.                     sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo                      .dMMMMMMMMMMMMMMMMM-                         .hMMMMMMMMMMMMMMMN+                :dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh-                 oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh.                      sMMMMMMMMMMMMMh                              
+             hMMMMMMMMMMMMMo                        /NMMMMMMMMMMMMMMM-                           :mMMMMMMMMMMMMMMMd-                :yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy-                  `yNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd/                        sMMMMMMMMMMMMMh                              
+             ymmmmmmmmmmmmm+                         `smmmmmmmmmmmmmm-                            `sMMMMMMMMMMMMMMMMs`                `+hNMMMMMMMMMMMMMMMMMMMMMMMMNh/`                       -oymMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMds-                          oNNNNNNNNNNNNNy                              
+                                                                                                    `````````````````                    `:ohmMMMMMMMMMMMMMMMMmho:`                              `:+shmNMMMMMMMMMMMMMMMMMMMMNmho/.                              `````````````                               
+                                                                                                                                             ``-:+oossssoo+:-``                                       ```-:/+oossssssoo+/:-.``                                                                              
+                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                            
+             `............................`                `....                              .....                    .:::`                               `````````````           `:::-          .:::`          `:::.                     .::::                   `````        ````                        
+             yNNNmddddddddddmNNmdmNNddmNNNo                oNNNm                             `NNNNy                    hNNN-          :dddh.:ddds          +mmmmmmmmmmmo           +NNNh          yNNN/          -NNNy                     sNNNN`             -ddmmmmm//ds/-/yd.ommmmmdd                    
+             hMMMy----------mMMy-hMMs-yMMMs    ddddddddddddNMMMMdddddddddddd:    dddddddddddddMMMMNdddddddddddds    .ddNMMMddddddds  :NMMN/`/MMMh          .///yMMMy///-  :++++++/ +MMMd          hMMM/    /ssssshMMMmssssss               sMMMM`             :MMMh///.-yMNdMNs`-///mMMM                    
+             hMMMNddddddddddNMMNdNNNmdNMMMs    ++++oooo+++++++++++++oooo++++.    ////+++++++++++++++++++++++///-    `+oMMMM+++++++/ :NMMMMddmMMMNddd+     `----oMMMs----` shhhhhhy +MMMd      :///dMMMs///`/yyyyyhMMMNyyyyyy    :++++++++++hMMMMo++++++++++.  :MMMNddd/+y/..-+d.odddMMMM                    
+             hMMMy----------oMMM------yMMMs        oddds           :dddh             smmmmdddddddddddddmmmms          .MMMm`yyys   :NMMMM///sMMMm///-     :mmmmNMMMNmmmm/          +MMMd      hmmmNMMMNmmm.      -MMMh          ymmmmmmmmmmNMMMMmmmmmmmmmmm-  :MMMh///./dho/ohd.-///mMMM                    
+             hMMMs dddddddds-MMM- shh/sMMMs        :MMMM.          hMMMy             hMMMd/////////////dMMMy          :MMMh-MMMh  :NMMMMM   /MMMh         `----oMMMs----` -::::::- +MMMd      ````hMMM+``` .hhhhhhNNNmyhhhh+    `..........dMMMM/..........   :MMMNddd/-hMmdmNy`odddMMMM                    
+             hMMMs MMMy:dMMh`MMMo dMM/sMMMs         mMMMo         -MMMM-             /dmmmdddddddddddddmmmd:          +MMMs/MMMs  +ooMMMMoooyMMMmooo:      shh-+MMMo-hhy  ymmmmmmh +MMMd          hMMM/     mMMM+------mMMM:              .NMMMMs            -oMMMh///:sho/:+sd/////mMMM:.                  
+             hMMMs MMM+ hMMh dMMd`MMM.sMMMs         +MMMN`        sMMMd          `/////+++++++++++++++++++////:       sMMM++MMM+    `MMMMhhhdMMMNhhh/      mMM/+MMMo:MMN  `......` +MMMd          hMMM+.-:  :NMMd`    +MMMy               yMMMMMM-           dMMMmdddddddddddddddddddmMMMs                  
+             hMMMs MMMo.hMMh /MMMyMMs sMMMs         `NMMM/       `NMMM/          -MMMMddddddddddddddddddddmMMMm       hMMM-sMMM:    `MMMM   /MMMh          mMM/+MMMo:MMN ..........oMMMd...    `.-dMMMmmNm   +NMMs`  :NMMh`              +MMMNMMMm.          dMMM`-sssssssssssssss+``:MMMs                  
+             hMMMs hNNmdmNmo  yMMMMd` sMMMs          sMMMd       +MMMm`          -MMMM` /+++++++++++++++- +MMMm       mMMN hMMM.    `MMMM---oMMMd---.      mMM:+MMMo.MMN hmmmmmmmmmNMMMMmmm   omNNMMMMy/-.    :mMMy.+NMNs`              oMMMN/yMMMd-         ymmm -sssssssssssyMMMN` -mmmo                  
+             hMMMs .-:::::-`  .mMMM-  sMMMs          .MMMM-      mMMMo           -MMMM` mMMMmhhhhhhhNMMM+ +MMMm      .MMMo mMMM``.` `MMMMNNNNMMMMNNNo     `MMN`+MMMo mMM.----------sMMMd---   :+:-hMMM/        .yNMNMMd:              .yMMMh.  +NMMN/`       -----------------yMMMo------.                  
+             hMMMs dddddddds`-hMddMm+`sMMMs           hMMMy     :MMMM.           -MMMM` mMMMs       mMMM+ +MMMm      oMMN` MMMN /Ms `MMMM...+MMMd...`     :MMs +MMMo oMM/          +MMMd          hMMM/        `-dMMMM+`            .oNMMd/     .sNMMh:`     ymmmmmmmmmmmmmmmmMMMMmmmmmmmo                  
+             hMMMs`::::::::-yNd+``/hNmmMMMs    ```````+MMMN.````hMMMh```````     -MMMM` hMMMmhhhhhhhNMMN/ +MMMm     `NMN: .MMMd.+Ms `MMMM```/MMMh```      yMm` +MMMo `dMh          +MMMd          hMMM/     `-odNmy:odNmy:.`    ``:yNMmy:         .+dNMdo.`         `````````-MMMh                          
+             hMMMmhhhhhhhhhhNNhhhhhhmMMMMMs    mmmmmmmNMMMMNmmmmMMMMNmmmmmmm:    -MMMM` `://///////////-  +MMMm     sMN/  :MMMMNMMo `MMMMdddmMMMNddd+    /Md.  +MMMo  .dM+         +MMMd      syyhMMMN-   .hmNdo:`    -+ymmh+  /hmNho:`              ./ymNdy`       hddddddddNMNN/                          
+             -////////////////////////////-    :////////////////////////////.    `////                    .///:    `++.   .++++++:   +++++++++++++++-   `//`   -+++-   `/+`        .+++/      /+++++:`    `/-`            .::  -:-`                      .-/`       -::::::::::-`                           
+                                                                                                                                                                                                                                                                                                            
+
+    -->
+
+    <style>
+
+      body{
+          font-family: Microsoft JhengHei;
+      }
+
+    </style>
+
+
+</head>
+
+<body class="bg-light">
+  
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">                     <!--導覽列-->
+        <a class="navbar-brand" href="index.html">
+            <img alt="備審網站" src="IMG/LOGO.png" width="85px" height="60px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav mr=auto" style="font-size: x-large;">
+              <li class="nav-item active"><a class="nav-link" href="#">首頁</a></li>
+              <li class="nav-item "><a class="nav-link" href="#AboutMe">關於我</a></li>
+              <li class="nav-item "><a class="nav-link" href="#GameMaker">遊戲</a></li>
+              <li class="nav-item "><a class="nav-link" href="#Animation">影片動畫</a></li>
+          </ul>
+
+      </div>
+
+    </nav>
+
+    <br><br><br><br>
+    <div id="Carousel" class="carousel slide" data-ride="carousel" >            <!--輪播圖片-->
+        <ol class="carousel-indicators">
+          <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#Carousel" data-slide-to="1"></li>
+          <li data-target="#Carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img id='img01' src="IMG/Welcome.png" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="IMG/AboutMe.png" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="IMG/Game.png" class="d-block w-100">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <br>
+    <div class="row" id="AboutMe">            <!--關於我-->
+      <div class="col-lg-1"></div>
+      <h2 class="col-lg-2" >關於我</h2>
+  </div>
+    <hr>
+      <div class="row">                           
+        <div class="col-md col-lg-1 mb-2"></div>
+        <div class="col-md col-lg-5 mb-2">                                                                                             
+            <a href="https://www.youtube.com/playlist?list=PL5t4nvrzESsEwFV_pEZNjC784LlpxxcOK" target= "blanl" title="Tap"><img class="card-img-top" src="IMG/Youtube.png" ></a>
+            
+        </div>
+        <div class="col-md col-lg-5 mb-2">                                                                                             
+          <a href="https://github.com/XUGuanWei?tab=repositories" target= "blanl" title="Tap"><img class="card-img-top" src="IMG/GitHub.png" ></a>
+          
+      </div>
+
+  
+
+        <div class="col-sm-10">
+          
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" id="GameMaker">       <!--遊戲-->
+      <div class="col-lg-1"></div>
+      <h2 class="col-lg-2" >已開發遊戲</h2>
+  </div>
+    <hr>
+    <br>
+    <div class="card-deck">
+        <div class="col-md col-lg-1 mb-2"></div>
+        <div class="col-md col-lg-5 mb-2">
+            <div class="card">                                                                                  <!--Attack on Virus-->
+            <a href="https://github.com/XUGuanWei/Attack-on-Virus" target= "blanl" title="Tap"><img class="card-img-top" src="IMG/Attack on Virus.png" ></a>
+            <div class="card-body">
+                <h5 class="card-title">Attack on Virus</h5>
+                <p class="card-subtitle mb-1 text-muted" style="color: gray;" >HTML、CSS、JavaScript</p>
+                <h5 class="card-text">利用鍵盤左右鍵移動吃病毒來獲得分數<br>若病毒掉落地板扣HP；吃到紙鈔則加HP</h5>
+                <a href="https://github.com/XUGuanWei/Attack-on-Virus" target= "blanl" class="card-link" style="color: cadetblue; font-size: x-large;" >GitHub</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-md col-lg-5 mb-2">
+            <div class="card">                                                                                  <!--Tedros Down-->
+            <a href="https://github.com/XUGuanWei/Tedros-Down" target= "blanl" title="Tap"><img class="card-img-top" src="IMG/Tedros Down.png"  ></a>
+            <div class="card-body">
+                <h5 class="card-title">Tedros Down</h5>
+                <p class="card-subtitle mb-1 text-muted" style="color: gray;" >C#</p>
+                <h5 class="card-text">利用鍵盤左右鍵控制角色移動下樓梯<br>掉落畫面或碰到針刺會GameOver</h5>
+                <a href="https://github.com/XUGuanWei/Tedros-Down" target= "blanl" class="card-link" style="color: cadetblue; font-size: x-large;">GitHub</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <h2 class="col-lg-2" >開發中遊戲</h2>      
+    </div>
+    <hr>
+    <br>
+    <div class="card-deck">
+        <div class="col-md col-lg-1 mb-2"></div>
+        <div class="col-md col-lg-10 mb-2">
+            <div class="card">                                                                                  <!--Long Dream-->
+            <img class="card-img-top" src="IMG/LongDream.png" alt="Long Dream">
+            <div class="card-body">
+                <h5 class="card-title">Long Dream</h5>
+                <p class="card-subtitle mb-1 text-muted" style="color: gray;" >JavaScript</p>
+                <h5 class="card-text">恐怖解謎遊戲</h5>
+                <h5 class="card-text">玩家須操控主角Yumi躲過敵人的追擊<br>探索並蒐集記憶的碎片，推敲出事件的真相</h5>
+                <h5 style="color: red;" class="card-text">自認美術能力不足、課業繁重等因素，暫停開發<br>預計於暑假重新啟動</h5>
+            </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row" id="Animation">        <!--影片-->
+      <div class="col-lg-1"></div>
+      <h2 class="col-lg-2" >影片動畫</h2>      
+    </div>
+    <hr>
+    <br>
+    <div class="card-deck">
+      <div class="col-md col-lg-4 mb-2">
+        <div class="card">                                                                                  <!--USR計畫剪輯影片-->
+          <iframe  height="300" src="https://www.youtube.com/embed/Nko8lyOB_hQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card-body">
+            <h5 class="card-title">USR計畫剪輯影片</h5>
+            <p class="card-subtitle mb-1 text-muted" style="color: gray;" >影音剪輯</p>
+            <p class="card-text">這支影片是我工作時幫學校剪的影片，</p>
+             
+        </div>
+        </div>
+      </div>
+      <div class="col-md col-lg-4 mb-2">
+          <div class="card">                                                                                  <!--減碳微電影-->
+              <iframe " height="300" src="https://www.youtube.com/embed/aUIPeVj_xyQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="card-body">
+              <h5 class="card-title">減碳微電影</h5>
+              <p class="card-subtitle mb-1 text-muted" style="color: gray;" >影音剪輯</p>
+              <h5 class="card-text">於109年5月期間參加比賽的作品，比賽是以拍攝闖關活動片段，再加上自己的創意，剪輯出一支故事架構完整的微電影；
+                  把一支活動影片剪輯成微電影對我來說既新奇又有挑戰性，很慶幸有參加到這次的比賽。</h5>
+          </div>
+          </div>
+      </div>
+      <div class="col-md col-lg-4 mb-2">
+          <div class="card">                                                                                  <!--Horror Penguin-->
+              <iframe height="300" src="https://www.youtube.com/embed/3l-h62rV_Qo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="card-body">
+              <h5 class="card-title">Horror Penguin</h5>
+              <p class="card-subtitle mb-1 text-muted" style="color: gray;" >動畫</p>
+              <h5 class="card-text">一時興起做的動畫，想法來自於自己正在開發中的遊戲《Long Dream》；
+                  裡面用到了再製作遊戲時，所學習到的技巧，包含音效、氣氛的掌控等...</h5>
+          </div>
+          </div>
+      </div>
+      
+</body>
+</html>
